@@ -16,11 +16,6 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "functions": {
-    "app/**/*.tsx": {
-      "maxDuration": 30
-    }
-  },
   "regions": ["iad1"],
   "public": true,
   "github": {
