@@ -1,9 +1,6 @@
-'use client';
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Navigation } from "./components/Navigation";
-import { ThemeProvider } from "./components/ThemeProvider";
+import { ClientWrapper } from "./components/ClientWrapper";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,12 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} bg-gray-50 dark:bg-gray-900 min-h-screen`}>
-        <ThemeProvider>
-          <Navigation />
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            {children}
-          </main>
-        </ThemeProvider>
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
       </body>
     </html>
   );
