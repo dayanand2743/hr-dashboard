@@ -4,7 +4,7 @@ A comprehensive HR dashboard built with Next.js, TypeScript, and Tailwind CSS fo
 
 ## 🌐 **Live Demo**
 
-**[🚀 View Live Demo](https://hr-dashboard-doy2oztsk-dayanand-s-projects.vercel.app)** *(Deploy your own version below)*
+**[🚀 View Live Demo](https://hr-dashboard-1-2nlzdrul6-dayanand-s-projects.vercel.app)** *(Deploy your own version below)*
 
 ## 🚀 Features
 
