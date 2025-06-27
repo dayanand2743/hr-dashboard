@@ -113,54 +113,6 @@ git push origin main
 - ✅ **Custom Domains** - Add your own domain
 - ✅ **Preview Deployments** - Test before merging
 
-### **Option 2: Netlify - Alternative Platform**
-
-#### **Step 1: Build Your Project**
-```bash
-npm run build
-npm run export  # If using static export
-```
-
-#### **Step 2: Deploy to Netlify**
-1. **Visit [netlify.com](https://netlify.com)**
-2. **Sign up/Login** with GitHub
-3. **Drag & Drop** your `out` folder OR **Connect GitHub** repository
-4. **Configure build settings:**
-   - Build command: `npm run build`
-   - Publish directory: `out` (for static export)
-5. **Deploy**
-
-#### **Step 3: Get Your Live URL**
-- **Production URL**: `https://your-project-name.netlify.app`
-
-### **Option 3: Railway - Full-Stack Platform**
-
-#### **Step 1: Prepare for Railway**
-```bash
-# Add Railway configuration
-echo "NODE_VERSION=18" > .nvmrc
-```
-
-#### **Step 2: Deploy to Railway**
-1. **Visit [railway.app](https://railway.app)**
-2. **Connect GitHub** repository
-3. **Auto-deploy** - Railway detects Next.js automatically
-4. **Get your URL**: `https://your-project-name.railway.app`
-
-### **Option 4: Render - Cloud Platform**
-
-#### **Step 1: Deploy to Render**
-1. **Visit [render.com](https://render.com)**
-2. **Create new Web Service**
-3. **Connect GitHub** repository
-4. **Configure:**
-   - Build Command: `npm install && npm run build`
-   - Start Command: `npm start`
-5. **Deploy**
-
-#### **Step 2: Get Your Live URL**
-- **Production URL**: `https://your-project-name.onrender.com`
-
 ## 📱 **Mobile & Cross-Platform Access**
 
 Once deployed, your HR Dashboard will be accessible from:
@@ -214,8 +166,6 @@ After deployment, test these features:
 ### **Deploy to Vercel**
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/hr-dashboard)
 
-### **Deploy to Netlify**
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yourusername/hr-dashboard)
 
 ## 📁 Project Structure
 
