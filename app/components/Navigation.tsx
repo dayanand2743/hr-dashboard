@@ -12,37 +12,14 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from './Button';
+import { useTheme } from './ThemeProvider';
 
 export const Navigation = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    // Check for saved theme preference or default to dark mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    const isDark = initialTheme === 'dark';
-    
-    setDarkMode(isDark);
-    document.documentElement.classList.toggle('dark', isDark);
-    
-    // If no saved theme, set the default
-    if (!savedTheme) {
-      localStorage.setItem('theme', initialTheme);
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    document.documentElement.classList.toggle('dark', newDarkMode);
-    localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
-  };
 
   const navItems = [
     { href: '/', label: 'Dashboard', icon: Home },
@@ -88,11 +65,11 @@ export const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
               className="ml-2"
-              title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {darkMode ? (
+              {theme === 'dark' ? (
                 <Sun className="w-4 h-4" />
               ) : (
                 <Moon className="w-4 h-4" />
@@ -143,14 +120,14 @@ export const Navigation = () => {
             {/* Mobile Dark Mode Toggle */}
             <div
               className="flex items-center px-3 py-2 rounded-md text-sm font-medium cursor-pointer text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
             >
-              {darkMode ? (
+              {theme === 'dark' ? (
                 <Sun className="w-4 h-4 mr-2" />
               ) : (
                 <Moon className="w-4 h-4 mr-2" />
               )}
-              {darkMode ? 'Light Mode' : 'Dark Mode'}
+              {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
             </div>
           </div>
         </div>
