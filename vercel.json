@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "hr-dashboard",
   "builds": [
     {
       "src": "package.json",
@@ -19,5 +20,42 @@
     "app/**/*.tsx": {
       "maxDuration": 30
     }
-  }
+  },
+  "regions": ["iad1"],
+  "public": true,
+  "github": {
+    "silent": true
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 } 
